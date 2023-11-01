@@ -13,24 +13,36 @@ describe('login function', () => {
     global.localStorage = null;
   });
 
-  it('should fetch and store a token in browser storage on success', async () => {
-    global.fetch = jest.fn().mockResolvedValue({
-      ok: true,
-      json: jest.fn().mockResolvedValue({ accessToken: 'mocked-token' }),
-    });
-
+  it('should fetch and store a token, name, and email in browser storage on success', async () => {
+    const name = 'test_user';
     const email = 'test@example.com';
     const password = 'password123';
 
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue({
+        name,
+        email,
+        accessToken: 'mocked-token',
+      }),
+    });
+
     const result = await login(email, password);
 
-    expect(result).toEqual({ accessToken: 'mocked-token' });
-    expect(localStorageMock.setItem).toHaveBeenCalledWith(
+    expect(result).toEqual({
+      name: 'test_user',
+      email: 'test@example.com',
+    });
+
+    expect(localStorageMock.setItem).toHaveBeenCalledTimes(2);
+    expect(localStorageMock.setItem).toHaveBeenNthCalledWith(
+      1,
       'token',
       'mocked-token',
     );
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('profile', {
-      accessToken: 'mocked-token',
+    expect(localStorageMock.setItem).toHaveBeenNthCalledWith(2, 'profile', {
+      name: 'test_user',
+      email: 'test@example.com',
     });
   });
 
