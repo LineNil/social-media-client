@@ -38,12 +38,13 @@ describe('login function', () => {
     expect(localStorageMock.setItem).toHaveBeenNthCalledWith(
       1,
       'token',
-      'mocked-token',
+      JSON.stringify('mocked-token'),
     );
-    expect(localStorageMock.setItem).toHaveBeenNthCalledWith(2, 'profile', {
-      name: 'test_user',
-      email: 'test@example.com',
-    });
+    expect(localStorageMock.setItem).toHaveBeenNthCalledWith(
+      2,
+      'profile',
+      JSON.stringify({ name, email }),
+    );
   });
 
   it('should throw an error on API request failure', async () => {
