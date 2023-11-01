@@ -25,11 +25,11 @@ describe('login function', () => {
     const result = await login(email, password);
 
     expect(result).toEqual({ accessToken: 'mocked-token' });
-    expect(localStorageMock.setItem()).toHaveBeenCalledWith(
+    expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'token',
       'mocked-token',
     );
-    expect(localStorageMock.setItem()).toHaveBeenCalledWith('profile', {
+    expect(localStorageMock.setItem).toHaveBeenCalledWith('profile', {
       accessToken: 'mocked-token',
     });
   });
