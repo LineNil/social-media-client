@@ -19,16 +19,17 @@ describe('login function', () => {
       json: jest.fn().mockResolvedValue({ accessToken: 'mocked-token' }),
     });
 
-    localStorageMock.save.mockImplementation(() => {});
-
     const email = 'test@example.com';
     const password = 'password123';
 
     const result = await login(email, password);
 
     expect(result).toEqual({ accessToken: 'mocked-token' });
-    expect(localStorageMock.save).toHaveBeenCalledWith('token', 'mocked-token');
-    expect(localStorageMock.save).toHaveBeenCalledWith('profile', {
+    expect(localStorageMock.setItem()).toHaveBeenCalledWith(
+      'token',
+      'mocked-token',
+    );
+    expect(localStorageMock.setItem()).toHaveBeenCalledWith('profile', {
       accessToken: 'mocked-token',
     });
   });
