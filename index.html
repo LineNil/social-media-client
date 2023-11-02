@@ -126,7 +126,7 @@
                 required
                 type="email"
                 class="form-control"
-                id="loginEmail"
+                id="loginEmailInput"
                 name="email"
                 pattern="[\w\-.]+@(stud.)?noroff.no$"
                 title="Only Noroff student or teacher emails are valid."
@@ -165,7 +165,9 @@
             >
               Register
             </button>
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" id="logInButton" class="btn btn-success">
+              Login
+            </button>
           </div>
         </form>
       </div>
@@ -251,6 +253,7 @@
               Close
             </button>
             <button
+              id="logInButton"
               type="button"
               class="btn btn-outline-success"
               data-bs-toggle="modal"
