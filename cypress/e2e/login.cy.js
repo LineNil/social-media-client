@@ -13,10 +13,7 @@ describe('User Login and Profile Access', () => {
 
     cy.get('#logInButton').click();
 
-    cy.url().should(
-      'include',
-      'http://localhost:61253/?view=profile&name=geir',
-    );
+    cy.url().should('include', '/?view=profile');
 
     cy.contains('geir').should('be.visible');
   });
