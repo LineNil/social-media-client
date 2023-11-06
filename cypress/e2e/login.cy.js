@@ -1,7 +1,3 @@
-import { apiPath } from '../../src/js/api/constants';
-import { headers } from '../../src/js/api/headers.js';
-import { save } from '../../src/js/storage/index.js';
-
 describe('User Login and Profile Access', () => {
   it('should allow the user to log in and access their profile', () => {
     cy.visit('index.html');

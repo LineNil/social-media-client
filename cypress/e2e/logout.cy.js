@@ -1,7 +1,3 @@
-import { apiPath } from '../../src/js/api/constants';
-import { headers } from '../../src/js/api/headers.js';
-import { save } from '../../src/js/storage/index.js';
-
 describe('User Logout', () => {
   it('should allow the user to log out with the logout button', () => {
     // Log in
