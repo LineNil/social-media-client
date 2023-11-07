@@ -1,1 +1,1 @@
-[![Automated Unit Testing](https://github.com/LineNil/social-media-client/actions/workflows/unit-test.yml/badge.svg?branch=add-workflows)](https://github.com/LineNil/social-media-client/actions/workflows/unit-test.yml)
+[![Automated Unit Testing](https://github.com/LineNil/social-media-client/actions/workflows/unit-test.yml/badge.svg?branch=add-workflows)](https://github.com/LineNil/social-media-client/actions/workflows/unit-test.yml) 
