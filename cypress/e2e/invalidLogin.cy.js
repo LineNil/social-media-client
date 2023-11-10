@@ -4,6 +4,12 @@ describe('Invalid Login Credentials', () => {
   it('should show an error message for invalid credentials', () => {
     cy.visit('index.html');
 
+    cy.wait(1000);
+    cy.get(
+      '#registerForm > div.modal-footer > button.btn.btn-secondary',
+    ).click();
+    cy.wait(1000);
+
     cy.contains('Login').click();
 
     cy.wait(1000);
