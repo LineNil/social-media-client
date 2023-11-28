@@ -1,6 +1,6 @@
 /* eslint-disable jest/valid-expect */
 
-describe('Invalid Login Credentials', () => {
+describe('The login form', () => {
   it('should show an error message for invalid credentials', () => {
     cy.visit('index.html');
 
